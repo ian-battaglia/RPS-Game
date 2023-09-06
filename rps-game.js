@@ -15,8 +15,17 @@ function getComputerChoice(choice) {
 }
 
 let userChoice = prompt(
-  "Type 'rock,' 'paper,' or 'scissors' to make your selection", "rock"
+  "Type 'rock,' 'paper,' or 'scissors' to make your selection",
+  "rock"
 );
+
+function playRound(userSelection, computerSelection) {
+  getComputerChoice();
+  if (getComputerChoice === "rock" && userChoice.toLowerCase === "rock") {
+    console.log("Rock and Rock! It's a tie!");
+  }
+}
 
 console.log(userChoice);
 console.log(getComputerChoice());
+playRound();
