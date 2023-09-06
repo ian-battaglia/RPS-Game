@@ -18,9 +18,5 @@ let userChoice = prompt(
   "Type 'rock,' 'paper,' or 'scissors' to make your selection", "rock"
 );
 
-function playRound(playerSelection, computerSelection) {
-    if getComputerChoice() === "rock"
-}
-
 console.log(userChoice);
 console.log(getComputerChoice());
