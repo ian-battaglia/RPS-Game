@@ -6,8 +6,9 @@ let userChoice = prompt(
   "rock"
 );
 
+let computerChoice;
+
 function getComputerChoice(choice) {
-  let computerChoice;
   let randomChoice = Math.floor(Math.random() * 3);
   if (randomChoice === 0) {
     computerChoice = "rock";
@@ -21,22 +22,15 @@ function getComputerChoice(choice) {
 
 function playRound(userSelection, computerSelection) {
   getComputerChoice();
-  if (getComputerChoice() == "rock" && userChoice.toLowerCase() == "rock") {
+  if (computerChoice == "rock" && userChoice.toLowerCase() == "rock") {
+    console.log(userChoice);
+    console.log(computerChoice);
     console.log("Rock and Rock! It's a tie!");
   } else {
+    console.log(userChoice);
+    console.log(computerChoice);
     console.log("Let's try that again.");
   }
 }
 
-console.log(userChoice);
-console.log(getComputerChoice());
 playRound();
-
-// let getComputerChoice = "rock";
-// let userChoice = "Rock";
-
-// if (getComputerChoice === "rock" && userChoice.toLowerCase() === "rock") {
-//   console.log("Rock and Rock! It's a tie!");
-// } else {
-//   console.log("Let's try that again.");
-// }
