@@ -1,12 +1,6 @@
-let userScore = 0;
-let computerScore = 0;
-
-let userChoice = prompt(
-  "Type 'rock,' 'paper,' or 'scissors' to make your selection",
-  "rock"
-);
-
 let computerChoice;
+
+// Generates a selection for the computer from one of three options.
 
 function getComputerChoice(choice) {
   let randomChoice = Math.floor(Math.random() * 3);
@@ -20,17 +14,92 @@ function getComputerChoice(choice) {
   return computerChoice;
 }
 
+// Function to play a round of the game. Asks for input from player, and then compares that to generated computer selection.
+
 function playRound(userSelection, computerSelection) {
+  let userChoice = prompt(
+    "Type 'rock,' 'paper,' or 'scissors' to make your selection",
+    "rock"
+  );
   getComputerChoice();
-  if (computerChoice == "rock" && userChoice.toLowerCase() == "rock") {
-    console.log(userChoice);
-    console.log(computerChoice);
-    console.log("Rock and Rock! It's a tie!");
-  } else {
-    console.log(userChoice);
-    console.log(computerChoice);
-    console.log("Let's try that again.");
+  switch (true) {
+    case userChoice.toLowerCase() === "rock" && computerChoice === "rock":
+      console.log(
+        `It's a tie! You selected ${userChoice} and the computer selected ${computerChoice}. The score is ${userScore} to ${computerScore}.`
+      );
+      break;
+    case userChoice.toLowerCase() === "rock" && computerChoice === "paper":
+      computerScore++;
+      console.log(
+        `You lost! You selected ${userChoice} and the computer selected ${computerChoice}. The score is ${userScore} to ${computerScore}.`
+      );
+      break;
+    case userChoice.toLowerCase() === "rock" && computerChoice === "scissors":
+      userScore++;
+      console.log(
+        `You won! You selected ${userChoice} and the computer selected ${computerChoice}. The score is ${userScore} to ${computerScore}.`
+      );
+      break;
+  }
+
+  switch (true) {
+    case userChoice.toLowerCase() === "paper" && computerChoice === "rock":
+      userScore++;
+      console.log(
+        `You won! You selected ${userChoice} and the computer selected ${computerChoice}. The score is ${userScore} to ${computerScore}.`
+      );
+      break;
+    case userChoice.toLowerCase() === "paper" && computerChoice === "paper":
+      console.log(
+        `It's a tie! You selected ${userChoice} and the computer selected ${computerChoice}. The score is ${userScore} to ${computerScore}.`
+      );
+      break;
+    case userChoice.toLowerCase() === "paper" && computerChoice === "scissors":
+      computerScore++;
+      console.log(
+        `You lost! You selected ${userChoice} and the computer selected ${computerChoice}. The score is ${userScore} to ${computerScore}.`
+      );
+      break;
+  }
+
+  switch (true) {
+    case userChoice.toLowerCase() === "scissors" && computerChoice === "rock":
+      computerScore++;
+      console.log(
+        `You lost! You selected ${userChoice} and the computer selected ${computerChoice}. The score is ${userScore} to ${computerScore}.`
+      );
+      break;
+    case userChoice.toLowerCase() === "scissors" && computerChoice === "paper":
+      userScore++;
+      console.log(
+        `You won! You selected ${userChoice} and the computer selected ${computerChoice}. The score is ${userScore} to ${computerScore}.`
+      );
+      break;
+    case userChoice.toLowerCase() === "scissors" &&
+      computerChoice === "scissors":
+      console.log(
+        `It's a tie! You selected ${userChoice} and the computer selected ${computerChoice}. The score is ${userScore} to ${computerScore}.`
+      );
+      break;
   }
 }
 
-playRound();
+// Sets the score for each of the players.
+
+let userScore = 0;
+let computerScore = 0;
+
+// Runs 5 rounds of the game, logging the totals after each round.
+
+function playGame() {
+    playRound();
+    playRound();
+    playRound();
+    playRound();
+    playRound();
+}
+
+playGame();
+// console.log(userChoice);
+// console.log(computerChoice);
+// console.log(`The score is ${userScore} to ${computerScore}.`);
