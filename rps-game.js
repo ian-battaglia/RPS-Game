@@ -92,14 +92,9 @@ let computerScore = 0;
 // Runs 5 rounds of the game, logging the totals after each round.
 
 function playGame() {
+  while (userScore < 5 && computerScore < 5) {
     playRound();
-    playRound();
-    playRound();
-    playRound();
-    playRound();
+  }
 }
-
 playGame();
-// console.log(userChoice);
-// console.log(computerChoice);
-// console.log(`The score is ${userScore} to ${computerScore}.`);
+console.log(`Game over! The final score was ${userScore} to ${computerScore}.`);
